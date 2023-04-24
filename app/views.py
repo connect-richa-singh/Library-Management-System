@@ -49,7 +49,6 @@ def login_view(request):
         username = request.POST['username']
         password = request.POST['pass1']   
         user=authenticate(request,username=username,password=password)
-        print(user,"===============user")
         if(user is not None):
             login(request, user)
             if  request.user.groups.filter(name='librarian').exists():
