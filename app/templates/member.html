@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome to Library Management System
+{% endblock %}
+
+{% block heading %} 
+<div class="container-lg mt-3 ">
+    <div class="row">
+        {% if request.user.is_authenticated %}
+        <h1 class="display-4 text-center text-light"> <span class="bg-danger px-2">Welcome To Member Dashboard</span> </h1>
+        {% else %}
+        <h1 class="display-4 text-center text-light"> <span class="bg-danger px-2">Welcome To Member Login</span> </h1>
+
+
+        {% endif %}
+    </div>
+</div>
+ {% endblock %}
+
+
+ {% block content %}
+
+ {% if request.user.is_authenticated %}
+
+ <div class="container-fluid">
+    <div class="row">
+
+        <div class="col-4">
+            <div class="card" style="width: 15rem;">
+                <div class="card-body">
+                    <p class="display-8 text-dark text-center bg-warning">Welcome,</p>
+                  <h5 class="card-title text-success  display-6">{{request.user.first_name|title}} {{request.user.last_name|title}}</h5>
+                </div>
+              </div>
+
+        </div>
+        <div class="col-8">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+            
+                  <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.image.url}}</td>
+                    <td>vbnm</td>
+                    <td>
+                        <a href="return/">Return</a>
+                    </td>
+            
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+ </div>
+
+ 
+
+
+ {% else %}
+ {% include 'login.html' %}
+ {% endif %}
+ {% endblock %}
+ 
+
+
+

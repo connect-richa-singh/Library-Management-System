@@ -1,0 +1,25 @@
+body{
+    background-image: url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-style{
+    width:200px;
+    height:300px;
+    opacity: 0.9;
+    background-color: lightyellow;
+}
+
+.card-title{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.signup-card{
+    background-color: black;
+}
+label{
+    color: goldenrod;
+}

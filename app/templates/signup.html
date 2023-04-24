@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome to Library Management System
+{% endblock %}
+
+{% block heading %} 
+<div class="container-lg mt-3 ">
+    <div class="row">
+        <h1 class="display-4 text-center text-light"> <span class="bg-danger px-2">Please Register to use Services...</span> </h1>
+    </div>
+</div>
+ {% endblock %}
+
+ {% block content %}
+ <div class="container mt-4">
+    <div class="row mx-auto">
+        <div class="col-6 mx-auto">
+            <div class="card signup-card">
+                <div class="card-body">
+                    <p class="display-6 text-dark">Register Here</p>
+
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+                        <label for="fname" class="form-label">First Name</label>
+                        <input class="form-control" type="text" placeholder="First Name" id="fname" name="fname">
+
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input class="form-control" type="text" placeholder="Last Name" id="lname" name="lname">
+
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" placeholder="Username" id="username" name="username">
+            
+                        <label for="pass1" class="form-label">Password</label>
+                        <input class="form-control" type="password" placeholder="Password" id="pass1" name="pass1">
+            
+                        <label for="username" class="form-label">Confirm Password</label>
+                        <input class="form-control" type="password" placeholder="Confirm Password" id="pass2" name="pass2"><br>
+
+                       
+                        <label for="librarian" class="form-label">Librarian</label>
+                        <input type="radio" name="mem" id="librarian" value="librarian"><br>
+
+                        <label for="member" class="form-label">Member</label>
+                        <input type="radio" name="mem"  id="member" value="member"><br>
+
+                        <input type="submit" class="btn btn-success" value="Signup">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+       
+      
+    </div>
+ </div>
+
+ {% endblock %}

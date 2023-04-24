@@ -1,0 +1,46 @@
+
+
+
+
+<!-- {% block heading %} 
+<div class="container-lg mt-3 ">
+    <div class="row">
+        <h1 class="display-4 text-center text-light"> <span class="bg-danger px-2">Please Login Here...</span> </h1>
+    </div>
+</div>
+ {% endblock %} -->
+
+ {% block content %}
+ <div class="container mt-4">
+    <div class="row mx-auto">
+        <div class="col-6 mx-auto">
+            <div class="card signup-card">
+                <div class="card-body">
+                    <p class="display-6 text-dark">Login Here</p>
+
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" placeholder="Username" id="username" name="username">
+            
+                        <label for="pass1" class="form-label">Password</label>
+                        <input class="form-control" type="password" placeholder="Password" id="pass1" name="pass1">
+            
+                        <label for="pass2" class="form-label">Confirm Password</label>
+                        <input class="form-control" type="password" placeholder="Confirm Password" id="pass2" name="pass2"><br>
+
+                       
+
+                        <input type="submit" class="btn btn-success" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+       
+      
+    </div>
+ </div>
+
+ {% endblock %}

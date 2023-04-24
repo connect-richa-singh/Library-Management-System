@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome to Library Management System
+{% endblock %}
+
+{% block heading %} 
+<div class="container-lg mt-3 ">
+    <div class="row">
+        <h1 class="display-5 text-center text-light"> <span class="bg-danger p-2">Welcome To Library Management System</span> </h1>
+
+    </div>
+</div>
+ {% endblock %}
+
+ {% block content %}
+ <div class="container mt-2">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                   <h1 class="text-center text-primary display-4"><i class="bi bi-book"></i></h1> 
+                 <p class="text-center text-danger fw-bolder">Read Free Books Online</p><br>
+                 <p class="text-center">Million of books are available </p>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center text-primary display-4"><i class="bi bi-binoculars"></i></h1> 
+                    <p class="text-center text-danger fw-bolder">Keep track of your favorite book</p><br>
+                    <p class="text-center">Million of books are available </p>
+                   </div>
+              </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="height:13rem">
+                <div><h1 class="text-center text-primary display-4"><i class="bi bi-shop"></i></h1> 
+                    <p class="text-center text-danger fw-bolder">Try virtual library explorer</p><br>
+                    <p class="text-center">Digital Shelves organized like physical library </p>
+                </div>
+              </div>
+        </div>
+    </div>
+   </div> 
+
+   <p class="display-6 bg-light text-danger mt-5">Trending Books</p>
+                  
+   <div class="container mt-4">
+    <div class="row">
+        {% for book in books %}
+        <div class="col-lg-4">
+           
+            <div class="card mt-4 card-style shadow-lg rounded">
+                <div class="card-body">
+                   <img src="{{book.image.url}}" style="height:220px ;"  alt=""> <br>
+                   <h6 class="card-title">
+                    {{book.title|upper}}
+                   </h6>
+                   <strong class="text-success text-center">Stock:</strong> {{book.quantity}}
+                    
+                   <button class="btn btn-success btn-block p-1 shadow rounded">Borrow Now</button>
+                    
+                </div>
+            </div>
+        </div>{% endfor %}
+    </div>
+   </div>
+ {% endblock %}
